@@ -1,0 +1,65 @@
+localStorage
+			.setItem("preferredmode","dark");
+			.getItem("preferredmode");
+
+String
+	.toUpperCase()
+	.substring()
+	.indexOf("/")
+	.lastIndexOf("/")
+
+JSON
+JSON.stringify(arr)
+JSON.parse(json);
+
+document
+		.body.className += " darktheme";
+
+	events
+	document.addEventListener(eventName,handler= function(e) {dragstart(e);});
+	document.removeEventListener(eventName,handler);
+
+	element
+		el=(element.contentWindow) ? element.contentWindow : (element.contentDocument.document) ? element.contentDocument.document : element.contentDocument;
+		el.document.open();
+		el.document.write(text);  
+    	el.document.close();
+    	if (el.document.body && !el.document.body.isContentEditable) { 
+    	  //el.document.body.contentEditable = true; 
+    		el.document.body.contentEditable = false;
+    	}   
+
+		element.innerHTML="";
+		element.currentStyle["width"]
+		element.value;
+		element.tagName
+		element.attributes []
+		element.scrollHeight
+		element.scrollWidth
+		element.classList
+		element.appendChild();
+		element.append();
+		element.prepend();
+		element.style 
+					.display
+					.setProperty("overflow", "auto", "important")
+
+		element.className 
+						+= " w3-show";
+			   			.indexOf("w3-show")
+			   			.replace(" w3-show", "");
+
+		create
+		document.createElement("iframe");
+			.setAttribute("allowfullscreen", "true");
+		getter
+		.getElementsByClassName()
+		.getElementById("textareaCode").value
+
+		function dom_getStyleValue(elmnt,style) {
+  		    if (window.getComputedStyle) {
+  		        return window.getComputedStyle(elmnt,null).getPropertyValue(style);
+  		    } else {
+  		        return elmnt.currentStyle[style];
+  		    }
+  		}
