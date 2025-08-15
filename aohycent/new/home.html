@@ -287,9 +287,9 @@ blockEra.forEach(function(bk){
 	bEra.append(e);
 });
 
-var wallId=window.sessionStorage.getItem('__bowtie__wallet_id');
+var wallId=window.sessionStorage.getItem('__coincraft__wallet_id');
 if(!wallId){
-	window.sessionStorage.setItem('__bowtie__wallet_id', window.crypto.randomUUID());
+	window.sessionStorage.setItem('__coincraft__wallet_id', window.crypto.randomUUID());
 }
 if(wallId){
 	alert(wallId);

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>GameGECKZ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#00ff00" />
+        <meta name="msapplication-TileColor" content="#440044" />
+
+        <link rel="icon" href="../../cdn/img/favicon.png" type="image/png">
+        <link rel="manifest" href="./manifest.json">
+        <link rel="stylesheet" type="text/css" href="larena.css">
+        <script src="../../cdn/js/bowinc-ui.js"></script>
+        <script src="../../cdn/js/bowinc-web3.js"></script>
+
+        <meta name="application-name" content="GameGECKZ">
+        <meta name="description" content="Gaming with peer-to-peer wager for web3 communities">
+        <meta name="author" content="GameGECKZ">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="GameGECKZ">
+        <meta name="bow-mobile-web-app-capable" content="yes">
+        <!--twitter og-->
+        <meta name="twitter:site" content="#">
+        <meta name="twitter:creator" content="1GECKZ">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="GameGECKZ">
+        <meta name="twitter:description" content="Gaming with peer-to-peer wager for web3 communities">
+        <meta name="twitter:image:src" content="../../cdn/img/banner/poster.png">
+        <!--facebook og-->
+        <meta property="og:url" content="#">
+        <meta property="og:title" content="GameGECKZ">
+        <meta property="og:description" content="Gaming with peer-to-peer wager for web3 communities">
+        <meta property="og:image" content="../../cdn/img/banner/poster.png">
+        <meta property="og:image:secure_url" content="../../cdn/img/banner/poster.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="793">
+        <meta property="og:image:height" content="446">
+    </head>
+    <body>
+        <nav title="Larena Navigation Bar">
+            <a href="#" class="pleft headerIcon">
+                <img src="../../cdn/img/ohycent.png" class="logo_icon">
+            </a>
+          
+            	<div class="headerItem">
+            		<h3 id="headerTitle"></h3>
+                    <button id="ctlF5" class="round" onClick="avm.openSearchItem();">&#127917;<br>More</button>          
+            	</div>
+           
+        </nav>
+        <screen id="bowLarenaViewMain">
+            <iframe src="home.html" name="afovirtual" id="avmFrameMain"></iframe>
+        </screen>
+        <taskbar class="text-center">
+            <button onclick="avm.getPage()"><a target="afovirtual" href="runner.html"  title="Blog Posts">&#127918;<br>POSTS</a></button>
+            <button onclick="avm.getPage()"><a target="afovirtual" href="runner.html"  title="about us">&#127919;<br>ABOUT</a></button>
+            <button onclick="avm.getPage()"><a target="afovirtual" href="runner.html"  title="services we offer">&#127920;<br>SERVICES</a></button>
+            <button onclick="avm.getPage()"><a target="afovirtual" href="brushpoint.html"  title="tool collections">&#127921;<br>TOOLS</a></button>          
+            <button onclick="avm.getPage()"><a target="afovirtual" href="index.html"  title="Talk to the Vinci">&#127922;<br>CHAT</a></button>
+            <button onclick="avm.getPage()"><a target="afovirtual" href="brushpoint.html"  title="Support creative projects by gifting">&#127923;<br>GIFTS</a></button>          
+        </taskbar>
+        <script>
+            var avm = window.avm=function(){}
+            avm.address = "1GECKZ9EjG7txbNhzYfGwPNLwWAUgvALF5";
+            avm.ip = "127.0.0.1";
+            avm.port = "8332";
+            avm.dom = window.document;
+            
+            var bLViewMain = document.getElementById("bowLarenaViewMain");
+            avm.browser= document.querySelector("#avmFormSearch");
+
+            avm.localhost = "127.0.0.1";
+
+            avm.submitSearch = function(){
+                amfm = avm.dom.querySelector("#avmFrameMain");
+                ri = avm.dom.querySelector("#amItSh");
+                rii = avm.dom.querySelector("#amItShTg");
+                ra = bowinc.base58encode(avm.stringToBytes(ri.value));
+                amfm.src=ri.value;
+                ri.value=ri.value;
+                rii.value=ra;
+            };
+
+            avm.searchSubmit = function(){
+                amfm = avm.dom.querySelector("#avmFrameMain");
+                ri = avm.dom.querySelector("#amItSh");
+                rii = avm.dom.querySelector("#amItShTg");
+                ra = avm.bytesToString(bowinc.base58decode(rii.value));
+                amfm.src=ra;
+                ri.value=ra;
+                rii.value=rii.value;
+            };
+
+            avm.stringToBytes = function(str) {
+              try {
+                var bytes = Crypto.charenc.UTF8.stringToBytes(str);
+              } catch (err) {
+                var bytes = [];
+                for (var i = 0; i < str.length; ++i)
+                   bytes.push(str.charCodeAt(i));
+              }
+              return bytes;
+            }
+            avm.bytesToString=function(bytes) {
+              try {
+                var str = Crypto.charenc.UTF8.bytesToString(bytes);
+              } catch (err) {
+                var str = '';
+                for (var i = 0; i < bytes.length; ++i)
+                    str += String.fromCharCode(bytes[i]);
+              }
+              return str;
+            }
+
+            avm.getTimeStampId = function() {
+                r = new Date().getTime();
+                return r.toString(16);
+            };
+            avm.openSearchItem =function(){
+            	var sb= document.createElement("input");
+            	var bt=document.createElement("button");
+            	bt.setAttribute("onclick","avm.submitSearch();");
+            	bt.setAttribute("class","searchItem");
+            	bt.innerHTML="go";
+                sb.setAttribute("class","searchItem");
+                sb.setAttribute("id","amitSh");
+                sb.setAttribute("type","url");
+                var n =document.querySelector(".headerItem");
+                n.appendChild(sb);
+                n.appendChild(bt);
+                document.querySelector("#ctlF5").style.visibility="hidden";
+           }
+           avm.getPage = function (){
+           	document.getElementById("headerTitle").innerHTML= $this.title;
+         }
+           
+    </script>
+    </body>
+</html>

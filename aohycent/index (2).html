@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>GameGECKZ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" href="../cdn/img/ohycent.png" type="image/png">
+        <link rel="manifest" href="manifest.json">
+        <link rel="stylesheet" type="text/css" href="../cdn/css/larena.css">
+        <script src="../cdn/js/bowinc-ui.js"></script>
+        <script src="../cdn/js/bowinc-web3.js"></script>
+        <script src="../cdn/js/bowinc/bowinc.notify.js"></script>
+
+        <meta name="application-name" content="GameGECKZ">
+        <meta name="description" content="Gaming with peer-to-peer wager for web3 communities">
+        <meta name="author" content="GameGECKZ">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="GameGECKZ">
+        <meta name="bow-mobile-web-app-capable" content="yes">
+        <!--twitter og-->
+        <meta name="twitter:site" content="#">
+        <meta name="twitter:creator" content="1GECKZ">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="GameGECKZ">
+        <meta name="twitter:description" content="Gaming with peer-to-peer wager for web3 communities">
+        <meta name="twitter:image:src" content="../cdn/img/ohycent.png">
+        <!--facebook og-->
+        <meta property="og:url" content="#">
+        <meta property="og:title" content="GameGECKZ">
+        <meta property="og:description" content="Gaming with peer-to-peer wager for web3 communities">
+        <meta property="og:image" content="../cdn/img/ohycent.png">
+        <meta property="og:image:secure_url" content="../cdn/img/ohycent.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="793">
+        <meta property="og:image:height" content="446">
+    </head>
+    <body>
+        <nav title="Larena Navigation Bar">
+            <div>
+                <mark id="debuger" class=""></mark>
+                <form id="avmFormSearch" action="" method="post">
+                <input type="text" name="avmInputSearchTag" id="amItShTg" placeholder="No active Dapp">
+                    <input type="text" name="avmInputSearch" id="amItSh" placeholder="Search bowchain or enter address">
+                    <input type="button" onclick="javascript: avm.submitSearch()" value="GO">
+                    <input type="button" onclick="javascript: avm.searchSubmit()" value="Come">
+                </form>
+        
+            </div>
+            <!--<div>
+                <input type="text" name="avmSearchOutput" id="amOtSh" placeholder="No active Dapp">
+            </div>-->
+        </nav>
+        <screen id="bowLarenaViewMain">
+            <iframe src="data:text/html;base64,PGNlbnRlcj5MZWdlbmRhcnkgQXJlbmEgPHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIxNiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgY2xhc3M9Im9jdGljb24gb2N0aWNvbi12ZXJpZmllZCBtci0yIj48cGF0aCBzdHlsZT0iZmlsbDojMDA5OTAwIiBkPSJtOS41ODUuNTIuOTI5LjY4Yy4xNTMuMTEyLjMzMS4xODYuNTE4LjIxNWwxLjEzOC4xNzVhMi42NzggMi42NzggMCAwIDEgMi4yNCAyLjI0bC4xNzQgMS4xMzljLjAyOS4xODcuMTAzLjM2NS4yMTUuNTE4bC42OC45MjhhMi42NzcgMi42NzcgMCAwIDEgMCAzLjE3bC0uNjguOTI4YTEuMTc0IDEuMTc0IDAgMCAwLS4yMTUuNTE4bC0uMTc1IDEuMTM4YTIuNjc4IDIuNjc4IDAgMCAxLTIuMjQxIDIuMjQxbC0xLjEzOC4xNzVhMS4xNyAxLjE3IDAgMCAwLS41MTguMjE1bC0uOTI4LjY4YTIuNjc3IDIuNjc3IDAgMCAxLTMuMTcgMGwtLjkyOC0uNjhhMS4xNzQgMS4xNzQgMCAwIDAtLjUxOC0uMjE1TDMuODMgMTQuNDFhMi42NzggMi42NzggMCAwIDEtMi4yNC0yLjI0bC0uMTc1LTEuMTM4YTEuMTcgMS4xNyAwIDAgMC0uMjE1LS41MThsLS42OC0uOTI4YTIuNjc3IDIuNjc3IDAgMCAxIDAtMy4xN2wuNjgtLjkyOGMuMTEyLS4xNTMuMTg2LS4zMzEuMjE1LS41MThsLjE3NS0xLjE0YTIuNjc4IDIuNjc4IDAgMCAxIDIuMjQtMi4yNGwxLjEzOS0uMTc1Yy4xODctLjAyOS4zNjUtLjEwMy41MTgtLjIxNWwuOTI4LS42OGEyLjY3NyAyLjY3NyAwIDAgMSAzLjE3IDBaTTcuMzAzIDEuNzI4bC0uOTI3LjY4YTIuNjcgMi42NyAwIDAgMS0xLjE4LjQ4OWwtMS4xMzcuMTc0YTEuMTc5IDEuMTc5IDAgMCAwLS45ODcuOTg3bC0uMTc0IDEuMTM2YTIuNjc3IDIuNjc3IDAgMCAxLS40ODkgMS4xOGwtLjY4LjkyOGExLjE4IDEuMTggMCAwIDAgMCAxLjM5NGwuNjguOTI3Yy4yNTYuMzQ4LjQyNC43NTMuNDg5IDEuMThsLjE3NCAxLjEzN2MuMDc4LjUwOS40NzguOTA5Ljk4Ny45ODdsMS4xMzYuMTc0YTIuNjcgMi42NyAwIDAgMSAxLjE4LjQ4OWwuOTI4LjY4Yy40MTQuMzA1Ljk3OS4zMDUgMS4zOTQgMGwuOTI3LS42OGEyLjY3IDIuNjcgMCAwIDEgMS4xOC0uNDg5bDEuMTM3LS4xNzRhMS4xOCAxLjE4IDAgMCAwIC45ODctLjk4N2wuMTc0LTEuMTM2YTIuNjcgMi42NyAwIDAgMSAuNDg5LTEuMThsLjY4LS45MjhhMS4xNzYgMS4xNzYgMCAwIDAgMC0xLjM5NGwtLjY4LS45MjdhMi42ODYgMi42ODYgMCAwIDEtLjQ4OS0xLjE4bC0uMTc0LTEuMTM3YTEuMTc5IDEuMTc5IDAgMCAwLS45ODctLjk4N2wtMS4xMzYtLjE3NGEyLjY3NyAyLjY3NyAwIDAgMS0xLjE4LS40ODlsLS45MjgtLjY4YTEuMTc2IDEuMTc2IDAgMCAwLTEuMzk0IDBaTTExLjI4IDYuNzhsLTMuNzUgMy43NWEuNzUuNzUgMCAwIDEtMS4wNiAwTDQuNzIgOC43OGEuNzUxLjc1MSAwIDAgMSAuMDE4LTEuMDQyLjc1MS43NTEgMCAwIDEgMS4wNDItLjAxOEw3IDguOTRsMy4yMi0zLjIyYS43NTEuNzUxIDAgMCAxIDEuMDQyLjAxOC43NTEuNzUxIDAgMCAxIC4wMTggMS4wNDJaIj48L3BhdGg+PC9zdmc+PC9jZW50ZXI+ICAg" name="afovirtual" id="avmFrameMain"></iframe>
+        </screen>
+        <taskbar class="text-center">
+            <button><svg aria-hidden="true" height="16" width="16" viewBox="0 0 16 16" version="1.1" data-view-component="true"><path style="fill:#008800;stroke: #008800;" d="m9.585.52.929.68c.153.112.331.186.518.215l1.138.175a2.678 2.678 0 0 1 2.24 2.24l.174 1.139c.029.187.103.365.215.518l.68.928a2.677 2.677 0 0 1 0 3.17l-.68.928a1.174 1.174 0 0 0-.215.518l-.175 1.138a2.678 2.678 0 0 1-2.241 2.241l-1.138.175a1.17 1.17 0 0 0-.518.215l-.928.68a2.677 2.677 0 0 1-3.17 0l-.928-.68a1.174 1.174 0 0 0-.518-.215L3.83 14.41a2.678 2.678 0 0 1-2.24-2.24l-.175-1.138a1.17 1.17 0 0 0-.215-.518l-.68-.928a2.677 2.677 0 0 1 0-3.17l.68-.928c.112-.153.186-.331.215-.518l.175-1.14a2.678 2.678 0 0 1 2.24-2.24l1.139-.175c.187-.029.365-.103.518-.215l.928-.68a2.677 2.677 0 0 1 3.17 0ZM7.303 1.728l-.927.68a2.67 2.67 0 0 1-1.18.489l-1.137.174a1.179 1.179 0 0 0-.987.987l-.174 1.136a2.677 2.677 0 0 1-.489 1.18l-.68.928a1.18 1.18 0 0 0 0 1.394l.68.927c.256.348.424.753.489 1.18l.174 1.137c.078.509.478.909.987.987l1.136.174a2.67 2.67 0 0 1 1.18.489l.928.68c.414.305.979.305 1.394 0l.927-.68a2.67 2.67 0 0 1 1.18-.489l1.137-.174a1.18 1.18 0 0 0 .987-.987l.174-1.136a2.67 2.67 0 0 1 .489-1.18l.68-.928a1.176 1.176 0 0 0 0-1.394l-.68-.927a2.686 2.686 0 0 1-.489-1.18l-.174-1.137a1.179 1.179 0 0 0-.987-.987l-1.136-.174a2.677 2.677 0 0 1-1.18-.489l-.928-.68a1.176 1.176 0 0 0-1.394 0ZM11.28 6.78l-3.75 3.75a.75.75 0 0 1-1.06 0L4.72 8.78a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L7 8.94l3.22-3.22a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg></button>
+            <button onclick="">&#128172;</button>
+            <button id="ctlF12"><a href="/" target="afovirtual">&#127918;</a></button>          
+        </taskbar>
+        <script type="text/javascript">
+            var avm = window.avm=function(){};
+
+            avm.address = "aohycent.ntf";
+            avm.ip = "127.0.0.1";
+            avm.port = "3666";
+            avm.dom = window.document;
+            
+            var bLViewMain = document.getElementById("bowLarenaViewMain");
+            avm.browser= document.querySelector("#avmFormSearch");
+
+            avm.localhost = "/afocha/.avm/BOWINC.txt";
+
+            avm.submitSearch = function(){
+                amfm = avm.dom.querySelector("#avmFrameMain");
+                ri = avm.dom.querySelector("#amItSh");
+                rii = avm.dom.querySelector("#amItShTg");
+                ra = bowinc.base58encode(avm.stringToBytes(ri.value));
+                amfm.src=ri.value;
+                ri.value=ri.value;
+                rii.value=ra;
+            };
+
+            avm.searchSubmit = function(){
+                amfm = avm.dom.querySelector("#avmFrameMain");
+                ri = avm.dom.querySelector("#amItSh");
+                rii = avm.dom.querySelector("#amItShTg");
+                ra = avm.bytesToString(bowinc.base58decode(rii.value));
+                amfm.src=ra;
+                ri.value=ra;
+                rii.value=rii.value;
+            };
+
+            avm.stringToBytes = function(str) {
+              try {
+                var bytes = Crypto.charenc.UTF8.stringToBytes(str);
+              } catch (err) {
+                var bytes = [];
+                for (var i = 0; i < str.length; ++i)
+                   bytes.push(str.charCodeAt(i));
+              }
+              return bytes;
+            }
+            avm.bytesToString=function(bytes) {
+              try {
+                var str = Crypto.charenc.UTF8.bytesToString(bytes);
+              } catch (err) {
+                var str = '';
+                for (var i = 0; i < bytes.length; ++i)
+                    str += String.fromCharCode(bytes[i]);
+              }
+              return str;
+            }
+
+            avm.getTimeStampId = function() {
+                r = new Date().getTime();
+                return r.toString(16);
+            };
+         avm.content= function (){
+               return {
+                  id: "token_ohct",
+                  title :"CASHOUT $500.00 ICO",
+                  body :"Claim $500.00 worth of token ICOs (Initial Coin Offerings)",
+                  icon :"https://aohycent.github.io/cdn/ohycent.png",
+                  tag :"token_ICOs",
+                  timeout:'500000',
+                  link :"https://aohycent.github.io"
+              }
+             };
+            
+var content = avm.content();
+            
+            avm.sendNotify = function(content) {
+                if (content.length!="") {
+                //BowNotify.Permission.request();
+                var bowNotify = bowinc.notify();
+                bowNotify.create(content.title,{
+                    body: content.body,
+                    icon: content.icon,
+                    tag: content.tag,
+                    id: content.id??avm.getTimeStampId(),
+                    timeout: content.timeout,
+                    vibrate: [100,50,100],
+                    onClick: function(){
+                        window.open(content.link);
+                    }
+                });
+                }
+                return false;
+            };
+            
+            avm.sendNotify(content);
+            
+            bowinc.notify.create(content.title,{
+                    body: content.body,
+                    icon: content.icon,
+                    tag: content.tag,
+                    id: content.id??avm.getTimeStampId(),
+                    timeout: content.timeout,
+                    vibrate: [100,50,100],
+                    onClick: function(){
+                        window.open(content.link);
+                    }
+                });
+    </script>
+    </body>
+</html>
